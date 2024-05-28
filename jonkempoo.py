@@ -1,57 +1,69 @@
 import random
 
-def escolha_palavra():
-    palavra_pc = [1, 2, 3]
-    return random.choice(palavra_pc)
+rodadas = int(input("Quantas rodadas?  "))
 
-def conversao(eu, pc):
-    if (eu == 1):
-        print("Humano: PEDRA")
-    elif (eu == 2):
-        print("Humano: PAPEL")
+while (rodadas > 0):
+
+  def escolha1():
+    print("Escolha uma das opções abaixo")
+    print("1 - pedra")
+    print("2 - papel")
+    print("3 - tesoura")
+    humano = int(input(":  "))
+    return humano
+
+  def escolha2():
+    opcoes = [1, 2, 3]
+    computador = random.choice(opcoes)
+    return computador
+
+  eu = escolha1()
+  pc = escolha2()
+
+
+  def compare(jog1, jog2):
+    if (jog1 == jog2):
+      print("!!!Empate!!!")
+
+    elif (jog1 == 1 and jog2 == 2):
+      print("O computador ganhou esta rodada...")
+
+    elif (jog1 == 1 and jog2 == 3):
+      print("O humano ganhou esta rodada...")
+
+    elif (jog1 == 2 and jog2 == 1):
+      print("O humano ganhou esta rodada...")
+
+    elif (jog1 == 2 and jog2 == 3):
+      print("O computador ganhou esta rodada...")
+
+    elif (jog1 == 3 and jog2 == 1):
+      print("O computador ganhou esta rodada...")
+
+    elif (jog1 == 3 and jog2 == 2):
+      print("O humano ganhou esta rodada...")
+
+
+  def conversao1(jog):
+    if (jog == 1):
+      print("Humano: PEDRA")
+    elif (jog == 2):
+      print("Humano: PAPEL")
+    elif (jog == 3):
+      print("Humano: TESOURA")
     else:
-        print("Humano: TESOURA")
+      print("Você escoleu uma opção inválida")
 
-    if (pc == 1):
-        print("Computador: PEDRA")
-    elif (pc == 2):
-        print("Computador: PAPEL")
+  def conversao2(jog):
+    if (jog == 1):
+      print("Computador: PEDRA")
+    if (jog == 2):
+      print("Computador: PAPEL")
     else:
-        print("Computador: TESOURA")
+      print("Computador: TESOURA")
 
-    
+  rodadas = rodadas - 1
 
-print("escolha uma das opções: ")
-print("1 - pedra")
-print("2 - papel")
-print("3 - tesoura")
-palavra_eu = int(input(": "))
-palavra_pc = escolha_palavra()
-
-
-def comparacao (eu, pc):
-    if (eu == pc):
-        print("EMPATE!!!")
-    elif (eu == 1 and pc == 2):
-        print("O computador ganhou")
-    elif (eu == 1 and pc == 3):
-        print("O Humano ganhou")
-    elif (eu == 2 and pc == 1):
-        print("O Humano ganhou!")
-    elif (eu == 2 and pc == 3):
-        print("O computador ganhou")
-    elif (eu == 3  and pc == 1):
-        print("O computador ganhou")
-    elif (eu == 3 and pc == 2):
-        print("Humano ganhou")
-    else:
-        print("Vc digitou errado...")
-
-
-escolha_palavra()
-print
-print(palavra_pc)
-print(palavra_eu)
-
-conversao(palavra_eu, palavra_pc)
-comparacao(palavra_eu, palavra_pc)
+  conversao1(eu)
+  conversao2(pc)
+  compare(eu, pc)
