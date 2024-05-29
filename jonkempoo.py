@@ -1,6 +1,8 @@
 import random
 
 rodadas = int(input("Quantas rodadas?  "))
+vitorias_humano = 0
+vitorias_pc = 0
 
 while (rodadas > 0):
 
@@ -22,26 +24,35 @@ while (rodadas > 0):
 
 
   def compare(jog1, jog2):
+    global vitorias_humano
+    global vitorias_pc
+
     if (jog1 == jog2):
       print("!!!Empate!!!")
 
     elif (jog1 == 1 and jog2 == 2):
       print("O computador ganhou esta rodada...")
+      vitorias_pc += 1
 
     elif (jog1 == 1 and jog2 == 3):
       print("O humano ganhou esta rodada...")
+      vitorias_humano += 1
 
     elif (jog1 == 2 and jog2 == 1):
       print("O humano ganhou esta rodada...")
+      vitorias_humano += 1
 
     elif (jog1 == 2 and jog2 == 3):
       print("O computador ganhou esta rodada...")
+      vitorias_pc += 1
 
     elif (jog1 == 3 and jog2 == 1):
       print("O computador ganhou esta rodada...")
+      vitorias_pc += 1
 
     elif (jog1 == 3 and jog2 == 2):
       print("O humano ganhou esta rodada...")
+      vitorias_humano += 1
 
 
   def conversao1(jog):
@@ -62,8 +73,14 @@ while (rodadas > 0):
     else:
       print("Computador: TESOURA")
 
-  rodadas = rodadas - 1
+  rodadas -= 1
 
   conversao1(eu)
   conversao2(pc)
   compare(eu, pc)
+
+
+print("Numero total de vitórias do humano:" , vitorias_humano)
+print("Numero total de vitrias do computador: ", vitorias_pc)
+
+  
